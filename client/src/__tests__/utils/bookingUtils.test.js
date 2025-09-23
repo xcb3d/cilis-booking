@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest'
+import { describe, it, expect, beforeEach, vi, test } from 'vitest'
 import {
   formatBookingTime,
   calculateBookingPrice,
@@ -13,14 +13,14 @@ describe('Booking Utilities - Core Tests', () => {
   })
 
   describe('formatBookingTime', () => {
-    it('should format booking time correctly', () => {
+    test('should format booking time correctly', () => {
       const result = formatBookingTime('2024-03-15', '14:30')
       expect(result.date).toBe('15/3/2024')
       expect(result.time).toBe('14:30')
       expect(result.timestamp).toBeDefined()
     })
 
-    it('should handle invalid inputs', () => {
+   test('should handle invalid inputs', () => {
       const result = formatBookingTime('invalid', '')
       expect(result.date).toBe('Invalid Date')
       expect(result.time).toBe('')
@@ -28,7 +28,7 @@ describe('Booking Utilities - Core Tests', () => {
   })
 
   describe('calculateBookingPrice', () => {
-    it('should calculate basic price', () => {
+    test('should calculate basic price', () => {
       const result = calculateBookingPrice(50, 2)
       expect(result.total).toBe(100)
       expect(result.subtotal).toBe(100)
